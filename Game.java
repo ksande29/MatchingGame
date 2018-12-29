@@ -25,6 +25,7 @@ public class Game extends JFrame {
 	private int numCardsTurned = 0;
 	private Card cardOne;
 	private Card cardTwo;
+	private boolean match = false;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -113,14 +114,22 @@ public class Game extends JFrame {
 					
 					if (numCardsTurned == 3)
 					{
-						cardOne.getButton().setIcon(new ImageIcon(GameOldIdea.class.getResource("/matchingGame/img/folk-pattern-black.png")));
-						cardTwo.getButton().setIcon(new ImageIcon(GameOldIdea.class.getResource("/matchingGame/img/folk-pattern-black.png")));
+						if (!match)
+						{
+							cardOne.getButton().setIcon(new ImageIcon(GameOldIdea.class.getResource("/matchingGame/img/folk-pattern-black.png")));
+							cardTwo.getButton().setIcon(new ImageIcon(GameOldIdea.class.getResource("/matchingGame/img/folk-pattern-black.png")));
+						}
 						numCardsTurned = 1;
+						match = false;
 					}
 					if (numCardsTurned == 1)
 						cardOne = currentCard;
 					if (numCardsTurned == 2)
+					{
 						cardTwo = currentCard;
+						if (cardOne.getId() == cardTwo.getId())
+							match = true;
+					}
 				}
 			});
 		}
