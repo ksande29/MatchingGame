@@ -19,7 +19,7 @@ import javax.swing.border.EmptyBorder;
 public class Game extends JFrame {
 
 	private JPanel contentPane;
-	private int numCards = 8;
+	private int numCards = 20;
 	
 	private Deck deck;
 	private int numCardsTurned;
@@ -66,7 +66,7 @@ public class Game extends JFrame {
 	private void setUpMainDisplay() 
 	{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 700, 600);
+		setBounds(100, 100, 1100, 1000);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.BLACK);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -101,7 +101,7 @@ public class Game extends JFrame {
 	private void makeBottomPanel() 
 	{
 		bottomPanel = new JPanel();
-		bottomPanel.setBorder(new EmptyBorder(20, 0, 40, 0));
+		bottomPanel.setBorder(new EmptyBorder(20, 0, 20, 0));
 		bottomPanel.setBackground(Color.BLACK);
 		contentPane.add(bottomPanel, BorderLayout.SOUTH);
 	}
@@ -129,9 +129,9 @@ public class Game extends JFrame {
 	private void makeGamePanel() 
 	{		
 		gamePanel = new JPanel();
-		gamePanel.setBackground(Color.WHITE);
+		gamePanel.setBackground(Color.BLACK);
 		contentPane.add(gamePanel, BorderLayout.CENTER);
-		gamePanel.setLayout(new GridLayout(0, 4, 0, 0));
+		gamePanel.setLayout(new GridLayout(0, 5, 0, 0));
 	}
 
 	private void makeButtons() 
